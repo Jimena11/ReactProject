@@ -1,10 +1,14 @@
+import { ChakraProvider } from "@chakra-ui/react";
 import "./App.css";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <div className="App">
-      <h1>React first app</h1>
-    </div>
+    <ChakraProvider>
+      <div className="App">
+        <NavBar />
+      </div>
+    </ChakraProvider>
   );
 }
 
