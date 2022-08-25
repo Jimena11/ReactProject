@@ -1,5 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import "./App.css";
+import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <ChakraProvider>
       <div className="App">
         <NavBar />
+        <ItemListContainer />
       </div>
     </ChakraProvider>
   );

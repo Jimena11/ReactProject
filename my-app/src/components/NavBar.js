@@ -22,8 +22,9 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import CartWidget from "./CartWidget";
 
-export default function NavBar() {
+export default function NavBar(props) {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -73,6 +74,7 @@ export default function NavBar() {
           direction={"row"}
           spacing={6}
         >
+          <CartWidget />
           <Button
             as={"a"}
             fontSize={"sm"}
