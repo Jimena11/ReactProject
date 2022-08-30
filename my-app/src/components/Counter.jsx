@@ -1,3 +1,4 @@
+import { Button, Flex } from "@chakra-ui/react";
 import { useState } from "react";
 
 const Counter = ({ stock, onAdd, min, sum, res }) => {
@@ -20,33 +21,40 @@ const Counter = ({ stock, onAdd, min, sum, res }) => {
   }
 
   return (
-    <div>
-      <div className="counter-box">
-        <h1>Counter</h1>
-        <p>Stock: {stock} </p>
-        <p>Cantidad: {count} </p>
+    <Flex
+      className="counter-box"
+      alignItems={"center"}
+      flexDirection={"column"}
+    >
+      <p>Stock: {stock} </p>
 
-        <div>
-          <button className="btn" onClick={substract}>
-            {" "}
-            -{" "}
-          </button>
-          <button className="btn" onClick={reset}>
-            {" "}
-            Reset{" "}
-          </button>
-          <button className="btn" onClick={add}>
-            {" "}
-            +{" "}
-          </button>
-        </div>
-        <div>
-          <button className="btn" onClick={() => onAdd(count)}>
-            Confirmar
-          </button>
-        </div>
+      <Flex gap={2} mt={2} mb={2}>
+        <Button
+          colorScheme="teal"
+          variant="solid"
+          size={"xs"}
+          onClick={substract}
+        >
+          -
+        </Button>
+
+        <span>{count}</span>
+
+        <Button colorScheme="teal" variant="solid" size={"xs"} onClick={add}>
+          +
+        </Button>
+      </Flex>
+
+      <div>
+        <Button
+          colorScheme="teal"
+          variant="outline"
+          onClick={() => onAdd(count)}
+        >
+          Confirmar
+        </Button>
       </div>
-    </div>
+    </Flex>
   );
 };
 
