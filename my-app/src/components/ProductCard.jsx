@@ -8,6 +8,7 @@ import {
   Icon,
   chakra,
   Tooltip,
+  Link,
 } from "@chakra-ui/react";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
@@ -53,6 +54,7 @@ function Rating({ rating, numReviews }) {
 
 function ProductCard() {
   return (
+
     <Flex p={25} w="full" alignItems="center" justifyContent="center">
       <Box
         bg={useColorModeValue("white", "gray.800")}
@@ -87,15 +89,7 @@ function ProductCard() {
             )}
           </Box>
           <Flex mt="1" justifyContent="space-between" alignContent="center">
-            <Box
-              fontSize="2xl"
-              fontWeight="semibold"
-              as="h4"
-              lineHeight="tight"
-              isTruncated
-            >
-              {data.name}
-            </Box>
+            <Link href="/detalleProducto" >{data.name}</Link>
             <Tooltip
               label="Add to cart"
               bg="white"

@@ -1,4 +1,3 @@
-import Counter from "./Counter";
 import ProductCard from "./ProductCard";
 const ItemListContainer = () => {
   function onAdd(count) {
