@@ -23,6 +23,7 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import CartWidget from "./CartWidget";
+import { obtenerCategorias } from "../services/mocks";
 
 export default function NavBar(props) {
   const { isOpen, onToggle } = useDisclosure();
@@ -55,13 +56,7 @@ export default function NavBar(props) {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
-          >
-            Planeta V
-          </Text>
+          <Link href="/">Planeta V</Link>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
@@ -260,43 +255,6 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   );
 };
 
-const NAV_ITEMS = [
-  {
-    label: "Comidas",
-    // children: [
-    //   {
-    //     label: "Explore Design Work",
-    //     subLabel: "Trending Design to inspire you",
-    //     href: "#",
-    //   },
-    //   {
-    //     label: "New & Noteworthy",
-    //     subLabel: "Up-and-coming Designers",
-    //     href: "#",
-    //   },
-    // ],
-  },
-  {
-    label: "Congelados",
-    // children: [
-    //   {
-    //     label: "Job Board",
-    //     subLabel: "Find your dream design job",
-    //     href: "#",
-    //   },
-    //   {
-    //     label: "Freelance Projects",
-    //     subLabel: "An exclusive list for contract work",
-    //     href: "#",
-    //   },
-    // ],
-  },
-  {
-    label: "Bebidas",
-    href: "#",
-  },
-  {
-    label: "Almacén",
-    href: "#",
-  },
-];
+const NAV_ITEMS = obtenerCategorias().map((categoria) => {
+  return { label: categoria.nombre, href: `/category/${categoria.nombre}` };
+});
