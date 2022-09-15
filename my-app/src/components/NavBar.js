@@ -15,6 +15,7 @@ import {
   useBreakpointValue,
   useDisclosure,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 import {
   HamburgerIcon,
@@ -27,6 +28,7 @@ import { obtenerCategorias } from "../services/mocks";
 
 export default function NavBar(props) {
   const { isOpen, onToggle } = useDisclosure();
+  const navigate = useNavigate();
 
   return (
     <Box>
@@ -56,7 +58,7 @@ export default function NavBar(props) {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Link href="/">Planeta V</Link>
+          <Link onClick={() => navigate("/")}>Planeta V</Link>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />

@@ -1,14 +1,14 @@
 import { Box, Heading, Text } from "@chakra-ui/react"
 import { useState } from "react"
+import { useCart } from "../context/CartContext"
 import Counter from "./Counter"
 
 const ItemDetail = ({ cargando, producto }) => {
-  const [cantidadSeleccionada, setCantidadSeleccionada] = useState(undefined)
-
+  const {addItem} = useCart()
+  
   const onAdd = (count) => {
-    setCantidadSeleccionada(count)
+    addItem(producto, count)
   }
-
 
   if(cargando) {
     return <div>Cargando...</div>
@@ -19,7 +19,7 @@ const ItemDetail = ({ cargando, producto }) => {
       <img width="300px" src={producto?.imageUrl} alt={producto?.descripcion}></img>
       <Heading size="md">${producto?.precio}</Heading>
 
-      { cantidadSeleccionada === undefined ? <Counter stock={producto?.cantidad} onAdd={onAdd} min={1} sum={1} res={1} /> : <Text>Item agregado</Text> }
+      <Counter stock={producto?.cantidad} onAdd={onAdd} min={1} sum={1} res={1} />
     </Box>
   }
 }

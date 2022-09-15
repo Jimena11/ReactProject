@@ -10,6 +10,7 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { FiShoppingCart } from "react-icons/fi";
+import { useCart } from "../context/CartContext";
 import Counter from "./Counter";
 
 const data = {
@@ -23,6 +24,12 @@ const data = {
 };
 
 function ProductCard({ producto }) {
+  const {addItem} = useCart()
+
+  const onAdd = (count) => {
+    addItem(producto, count)
+  }
+
   return (
 
     <Flex p={25} w="full" alignItems="center" justifyContent="center">
@@ -75,7 +82,7 @@ function ProductCard({ producto }) {
               {producto.precio.toFixed(2)}
             </Box>
           </Flex>
-          <Counter stock={producto.cantidad} onAdd={() => {}} min={1} sum={1} res={1} />
+          <Counter stock={producto.cantidad} onAdd={onAdd}  min={1} sum={1} res={1} />
         </Box>
       </Box>
     </Flex>

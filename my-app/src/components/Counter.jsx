@@ -1,8 +1,12 @@
 import { Button, Flex } from "@chakra-ui/react";
 import { useState } from "react";
+import { useCart } from "../context/CartContext";
 
 const Counter = ({ stock, onAdd, min, sum, res }) => {
   const [count, setCount] = useState(min);
+  const { cart } = useCart()
+
+  console.log(cart)
 
   function add() {
     if (count < stock) {
