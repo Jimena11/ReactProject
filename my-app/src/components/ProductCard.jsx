@@ -75,7 +75,7 @@ function ProductCard({ producto }) {
               {producto.precio.toFixed(2)}
             </Box>
           </Flex>
-          <Counter stock={5} onAdd={() => {}} min={1} sum={1} res={1} />
+          <Counter stock={producto.cantidad} onAdd={() => {}} min={1} sum={1} res={1} />
         </Box>
       </Box>
     </Flex>
